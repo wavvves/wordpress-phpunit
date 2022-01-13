@@ -1,19 +1,20 @@
-version: "2"
+---
+version: '3'
 
 services:
   wordpress_phpunit:
-    build: "."
+    build: '.'
     environment:
-      PHPUNIT_DB_HOST: "mysql_phpunit"
+      PHPUNIT_DB_HOST: 'mysql_phpunit'
     volumes:
-      - ".:/app"
-      - "testsuite:/tmp"
+      - '.:/app'
+      - 'testsuite:/tmp'
   mysql_phpunit:
-    image: "mariadb:10.2"
+    image: 'mariadb:10.7'
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: "wordpress_test"
-      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: 'wordpress_test'
+      MYSQL_ROOT_PASSWORD: ''
 
 volumes:
-  testsuite: {}
+  testsuite: { }
